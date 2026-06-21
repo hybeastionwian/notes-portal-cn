@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 平台介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f1f3f6;
+      line-height: 1.7;
+      color: #1e2024;
+    }
+
+    .hero {
+      background: linear-gradient(145deg, #0b0f1c 0%, #1c2237 100%);
+      padding: 5.5rem 1.5rem 4rem;
+      text-align: center;
+      position: relative;
+      border-bottom: 4px solid #3281ff;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: #3281ff;
+      border-radius: 4px;
+    }
+
+    .hero h1 {
+      color: #ffffff;
+      font-size: 2.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      color: #bbc4db;
+      font-size: 1.15rem;
+      max-width: 640px;
+      margin: 0 auto;
+      font-weight: 400;
+      opacity: 0.85;
+    }
+
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 2.8rem 1.5rem 3.5rem;
+      background: #ffffff;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+      border-radius: 20px;
+      transform: translateY(-28px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .article-title {
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: #101214;
+      line-height: 1.3;
+    }
+
+    .meta-line {
+      font-size: 0.9rem;
+      color: #5c6570;
+      margin-bottom: 1.8rem;
+      border-bottom: 1px solid #e9edf2;
+      padding-bottom: 0.9rem;
+    }
+
+    .lead {
+      font-size: 1.15rem;
+      background: #f6f9ff;
+      padding: 1.2rem 1.6rem;
+      border-left: 4px solid #3281ff;
+      border-radius: 8px;
+      margin-bottom: 2.2rem;
+      color: #1d2a3a;
+      font-weight: 450;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 2rem 0 0.8rem;
+      color: #12161e;
+      border-left: 6px solid #3281ff;
+      padding-left: 1rem;
+    }
+
+    p {
+      margin: 1rem 0 1.2rem;
+      text-align: justify;
+    }
+
+    a {
+      color: #1a64db;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    a:hover, a:focus {
+      border-bottom-color: #1a64db;
+      color: #0b3b8a;
+    }
+
+    .highlight-box {
+      background: #f7f9fe;
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
+      margin: 2.2rem 0;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.02);
+    }
+
+    .highlight-box p {
+      margin: 0.4rem 0;
+    }
+
+    .faq-item {
+      margin: 1.5rem 0 1rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: #0b1c30;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-item p {
+      margin: 0 0 0.8rem;
+    }
+
+    .quote-note {
+      background: #f0f4fe;
+      padding: 1.2rem 1.8rem;
+      border-radius: 14px;
+      font-style: normal;
+      margin: 2.2rem 0 1.5rem;
+      border: 1px solid #dce4f0;
+    }
+
+    .quote-note::before {
+      content: '💡 提示';
+      font-weight: 600;
+      display: block;
+      color: #1a4970;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .visit-line {
+      margin-top: 2.5rem;
+      padding: 1.2rem 0;
+      font-size: 1rem;
+      border-top: 1px solid #dfe4ed;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e2eaff;
+      color: #16356b;
+      padding: 0.15rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-right: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+      .container {
+        padding: 2rem 1.2rem;
+        border-radius: 16px;
+        transform: translateY(-16px);
+      }
+      .article-title {
+        font-size: 1.6rem;
+      }
+      .lead {
+        padding: 1rem;
+        font-size: 1rem;
+      }
+      .highlight-box {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>爱游戏</h1>
+    <p>聚合服务 · 轻松触达</p>
+  </header>
+
+  <main class="container">
+    <h1 class="article-title">快速辨别：爱游戏是一个怎样的平台？</h1>
+    <div class="meta-line"><span class="tag">平台定位</span> 信息页 · 简洁版</div>
+
+    <p class="lead">
+      如果你第一次看到“爱游戏”这个名字，可能会好奇它包含什么服务，是否值得花时间注册或浏览。以下从功能与场景两个维度帮你快速建立认知。
+    </p>
+
+    <p>
+      简单来说，<a href="https://portal-cn-igame.com">爱游戏</a> 是一个面向中文用户的数字娱乐聚合入口，提供游戏资讯、社区互动、账号管理、活动中心等多种模块。其设计意图是让用户通过一个统一的门户，管理不同游戏相关的操作，而无需在各个单独站点之间反复切换。
+    </p>
+
+    <h2>核心模块与用途</h2>
+    <p>
+      平台内主要包含几个区域：<strong>游戏库</strong>（展示合作产品与更新动态）、<strong>个人中心</strong>（绑定角色、查看资产与成就）、<strong>活动与福利</strong>（限时任务、兑换码发放）、以及<strong>社区频道</strong>（讨论、攻略、反馈）。这种结构对同时体验多款产品的玩家尤其友好，登录一次即可访问所有关联服务。
+    </p>
+
+    <div class="highlight-box">
+      <p>▸ 资讯区聚合了官方公告、版本预告与维护通知</p>
+      <p>▸ 账号管理支持多游戏身份绑定与安全设置</p>
+      <p>▸ 活动板块通常包含每日签到、积分商城与专属抽奖</p>
+      <p>▸ 社区内容由用户生成，同时有官方入驻的栏目</p>
+    </div>
+
+    <p>
+      从使用场景上看，日常活跃用户会定期打开<a href="https://portal-cn-igame.com">爱游戏</a>领取签到奖励、浏览新活动预告；对于刚接触某款游戏的玩家，门户内的攻略区和FAQ也能帮助快速上手。平台不直接提供游戏下载，而是充当信息与功能的集散地。
+    </p>
+
+    <h2>谁适合使用？</h2>
+    <p>
+      如果你是轻度玩家，希望偶尔看看福利或公告，爱游戏可以作为一个便捷的入口；如果你是深度玩家，同时关注多款产品，那么统一的个人中心和跨游戏活动会显著降低管理成本。对于开发者或合作伙伴，平台也提供了后台数据查看与内容发布接口（需申请）。
+    </p>
+
+    <div class="faq-item">
+      <strong>常见疑问摘要</strong>
+      <p><strong>Q：需要付费才能使用吗？</strong> 注册与浏览完全免费，部分活动或功能可能要求绑定指定游戏角色，但无强制付费。</p>
+      <p><strong>Q：是否支持手机端？</strong> 响应式适配移动端浏览器，也可以通过官方应用商店下载专用App（目前仅限安卓端）</p>
+      <p><strong>Q：社区发言有什么限制？</strong> 遵守平台公约即可，严禁广告与外挂相关讨论。</p>
+    </div>
+
+    <div class="quote-note">
+      <p><a href="https://portal-cn-igame.com">爱游戏</a> 本身不存储用户的支付信息，所有敏感交易均在相应游戏官方渠道完成。首次登录建议完成邮箱与手机双重验证。</p>
+    </div>
+
+    <p>
+      总体而言，爱游戏更偏向“服务型门户”而非单一的资讯站。通过一个账号打通多个游戏生态，是其区别于普通攻略站的主要差异点。如果你已经拥有其中某款游戏的账号，不妨尝试绑定后查看整合界面。
+    </p>
+
+    <div class="visit-line">
+      <span>若希望进一步探索，可以直接访问</span> <a href="https://portal-cn-igame.com">爱游戏</a><span>，或参考平台内的帮助文档。</span>
+    </div>
+  </main>
+</body>
+</html>
