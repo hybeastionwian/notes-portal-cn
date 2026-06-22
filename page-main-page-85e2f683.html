@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leisu · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fdf6ec 0%, #fcebdb 60%, #f7ddd0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.5rem 3rem;
+            color: #2e241e;
+            line-height: 1.6;
+        }
+
+        .page-wrapper {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* 卡片通用设计 */
+        .card {
+            background: #fffffffa;
+            backdrop-filter: blur(2px);
+            border-radius: 32px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 10px 28px -6px rgba(80, 50, 30, 0.12), 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(255, 235, 215, 0.5);
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 18px 36px -10px rgba(120, 80, 50, 0.15);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 580;
+            letter-spacing: -0.02em;
+            color: #3f2b1e;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, #6b4c3b, #a47a5f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .sub {
+            font-size: 1.25rem;
+            color: #5d4639;
+            background: rgba(250, 235, 215, 0.5);
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+            margin-bottom: 1.2rem;
+            font-weight: 450;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 1.2rem auto 0.8rem;
+            font-size: 1.15rem;
+            color: #3f352d;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: #e7d2be;
+            color: #2e1f17;
+            padding: 0.4rem 1.6rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            font-weight: 480;
+            margin-top: 0.25rem;
+        }
+
+        /* 优势区 · 特点卡片网格 */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .advantage-item {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid #f0e2d6;
+            box-shadow: 0 4px 10px rgba(130, 80, 50, 0.04);
+            transition: all 0.2s ease;
+        }
+
+        .advantage-item:hover {
+            border-color: #dbbca8;
+            background: #fffcf8;
+            transform: translateY(-2px);
+        }
+
+        .advantage-item h3 {
+            font-size: 1.15rem;
+            font-weight: 550;
+            color: #4f3627;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .advantage-item h3::before {
+            content: "✦";
+            color: #b88564;
+            font-size: 1.3rem;
+        }
+
+        .advantage-item p {
+            font-size: 0.95rem;
+            color: #4d3c30;
+            margin: 0;
+        }
+
+        /* 说明区 —— 内容详述 */
+        .explain-block {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .explain-text {
+            flex: 2;
+            min-width: 240px;
+        }
+
+        .explain-text h2 {
+            font-size: 1.7rem;
+            font-weight: 520;
+            color: #3f2a1c;
+            margin-bottom: 1rem;
+            border-left: 5px solid #cbab93;
+            padding-left: 1rem;
+        }
+
+        .explain-text p {
+            margin-bottom: 1rem;
+            color: #3f332b;
+        }
+
+        .explain-link-box {
+            flex: 1;
+            min-width: 160px;
+            background: #f7ede5;
+            border-radius: 20px;
+            padding: 1.5rem 1.2rem;
+            text-align: center;
+            border: 1px solid #ead9cb;
+        }
+
+        .explain-link-box p {
+            font-size: 0.95rem;
+            color: #4c382b;
+            margin-bottom: 0.8rem;
+        }
+
+        .btn-link {
+            display: inline-block;
+            background: #ffffff;
+            border: 1px solid #dcc1ad;
+            border-radius: 60px;
+            padding: 0.65rem 2rem;
+            font-size: 1rem;
+            font-weight: 480;
+            color: #3f2a1d;
+            text-decoration: none;
+            transition: background 0.2s, border-color 0.2s;
+            box-shadow: 0 2px 6px rgba(120, 80, 50, 0.04);
+        }
+
+        .btn-link:hover {
+            background: #f5e7dd;
+            border-color: #b58d73;
+        }
+
+        /* FAQ 摘要区 */
+        .faq-mini {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            padding: 0.5rem 0;
+        }
+
+        .faq-item {
+            flex: 1 1 200px;
+            background: #fcf6f0;
+            border-radius: 20px;
+            padding: 1.2rem 1.3rem;
+            border: 1px solid #f0dfd2;
+        }
+
+        .faq-item .q {
+            font-weight: 560;
+            color: #4b3324;
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.98rem;
+        }
+
+        .faq-item .a {
+            color: #4d3d32;
+            font-size: 0.9rem;
+        }
+
+        /* 底部链接区 */
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1.8rem;
+            padding: 1.8rem 0.5rem 1rem;
+            border-top: 1px solid #e4d3c5;
+            margin-top: 1.5rem;
+        }
+
+        .footer-links a {
+            color: #4b3729;
+            text-decoration: none;
+            border-bottom: 1px dotted #ccb3a1;
+            padding-bottom: 2px;
+            font-size: 0.95rem;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #1f140e;
+            border-bottom: 1px solid #7f5c46;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 1.8rem;
+            font-size: 0.9rem;
+            color: #6a5547;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 1rem 2.5rem;
+            }
+
+            .card {
+                padding: 1.8rem 1.2rem;
+                border-radius: 24px;
+            }
+
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .hero .sub {
+                font-size: 1rem;
+            }
+
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .explain-block {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+
+            .faq-mini {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                gap: 1.2rem;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .advantage-item {
+                padding: 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- hero区 -->
+        <div class="card hero">
+            <div class="sub">稳定入口 · 页面说明</div>
+            <h1>leisu</h1>
+            <p>一个经过细致整理的页面，从结构到用词，都向着清晰与可靠靠近。没有多余装饰，但每一部分都有实际承载。</p>
+            <div class="tagline">▸ 入口明确 · 内容平实 · 功能直接</div>
+        </div>
+
+        <!-- 优势区：卡片网格 -->
+        <div class="card">
+            <div style="margin-bottom: 0.2rem; font-size: 0.9rem; color: #796352; letter-spacing: 0.3px;">优势 · 特点</div>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <h3>入口直接</h3>
+                    <p>没有层层跳转，页面内就能找到核心链接。避免多余步骤，专注在你想去的地方。</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>结构清晰</h3>
+                    <p>每个区块都有明确作用：介绍、特点、说明、常见问题。浏览时不需要猜测位置，信息排布有迹可循。</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>说明详实</h3>
+                    <p>文字经过筛选，用平实的语言解释页面用途。不渲染气氛，只把该交代的内容交代清楚。</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>视觉温和</h3>
+                    <p>暖色渐变与白色卡片组合，降低视觉负担。圆角与柔和阴影让界面更接近纸质阅读感。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 说明区 + 链接嵌入句子 -->
+        <div class="card">
+            <div class="explain-block">
+                <div class="explain-text">
+                    <h2>页面说明 · 稳定入口</h2>
+                    <p>这个页面是对 <a href="https://page-main-leisu.com" style="color:#5d3c29; text-decoration: underline; text-underline-offset: 4px; font-weight: 480;">leisu</a> 的一个静态介绍性落地。它不追踪行为，不要求输入，只呈现内容本身。你可以把这里当作一个信息整理点：先浏览说明，再决定下一步。</p>
+                    <p>整页设计围绕“说明”展开——从标题到小字，都在解释这个网站是什么、能做什么、适合哪些场景。没有浮夸标语，每段话都经过推敲，避免冗余。</p>
+                    <p>如果你需要快速了解 <a href="https://page-main-leisu.com" style="color:#5d3c29; text-decoration: underline; text-underline-offset: 4px; font-weight: 480;">leisu</a> 所涉及的方向，可以直接阅读 FAQ 摘要。如果已经有明确目标，也可以直接前往主站。</p>
+                </div>
+                <div class="explain-link-box">
+                    <p>主站链接</p>
+                    <a href="https://page-main-leisu.com" class="btn-link">leisu</a>
+                    <p style="margin-top: 1rem; font-size: 0.85rem; color: #6f5847;">该链接指向网站首页</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ摘要区 -->
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
+                <h2 style="font-size: 1.4rem; font-weight: 500; color: #3c2b1e;">FAQ 摘要</h2>
+                <span style="font-size: 0.85rem; color: #7a6557;">常见问题 · 简要回答</span>
+            </div>
+            <div class="faq-mini">
+                <div class="faq-item">
+                    <span class="q">这个页面是做什么的？</span>
+                    <span class="a">它是 <a href="https://page-main-leisu.com" style="color:#4f3425; text-decoration: underline; text-underline-offset: 3px;">leisu</a> 的说明型落地页，用文字和卡片结构介绍站点背景与特点，同时提供一个稳定入口。</span>
+                </div>
+                <div class="faq-item">
+                    <span class="q">内容会经常变化吗？</span>
+                    <span class="a">页面本身是静态介绍，核心信息保持稳定。如果主站有重要更新，这里会做相应调整。</span>
+                </div>
+                <div class="faq-item">
+                    <span class="q">如何找到主站入口？</span>
+                    <span class="a">页面中多处放置了指向 <a href="https://page-main-leisu.com" style="color:#4f3425; text-decoration: underline; text-underline-offset: 3px;">leisu</a> 的链接，任何一处都可以直接过去。</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部链接区 -->
+        <div class="card" style="padding-bottom: 1.8rem;">
+            <div class="footer-links">
+                <a href="https://page-main-leisu.com">leisu</a>
+                <a href="#">说明文档</a>
+                <a href="#">常见问题</a>
+                <a href="#">内容索引</a>
+            </div>
+            <div class="footer-note">
+                页面内容经过整理，保持平实风格。如有疑问，可参考 FAQ 或直接访问主站。
+            </div>
+        </div>
+    </div>
+</body>
+</html>
